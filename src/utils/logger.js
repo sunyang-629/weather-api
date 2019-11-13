@@ -3,7 +3,7 @@ const path = require("path");
 const env = process.env.NODE_ENV;
 
 const logger = createLogger({
-  level: env === "production" ? "info" : "debug",
+  level: env === "production" ? "warn" : "debug",
   format: format.combine(
     format.colorize(),
     format.label({ label: path.basename(module.parent.filename) }),
