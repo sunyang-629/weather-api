@@ -2,14 +2,14 @@ const { getCode, getName } = require("country-list");
 const responseFormatter = require("./../utils/responseFormatter");
 
 module.exports = (req, res, next) => {
-  const { cc } = req.params;
+  const { cc } = req.query;
   if (cc.length === 2) {
     if (getName(cc)) {
       return next();
     }
   } else {
     if (getCode(cc)) {
-      req.params.cc = getName(cc);
+      req.query.cc = getName(cc);
       return next();
     }
   }
