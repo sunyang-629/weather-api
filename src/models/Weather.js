@@ -1,4 +1,4 @@
-const City = require("./City");
+const City = require("./city");
 const ForecastWeather = require("./ForecastWeather");
 const CurrentWeather = require("./CurrentWeather");
 const axios = require("./../utils/axios");
