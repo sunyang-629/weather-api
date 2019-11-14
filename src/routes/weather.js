@@ -1,5 +1,5 @@
 const express = require("express");
-
+const responseFormatter = require("./../utils/responseFormatter");
 const weather = require("./../models/Weather");
 
 const router = express.Router();
@@ -11,9 +11,7 @@ router.get("/:cc/:city", (req, res) => {
   const weatherType = req.query.weatherType;
   weather
     .getDate(city, cc, weatherType)
-    .then(response => {
-      res.send(response);
-    })
+    .then(response => responseFormatter(res, 200, null, response))
     .catch(err => console.log(err));
 });
 
