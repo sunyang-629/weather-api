@@ -8,9 +8,9 @@ const router = express.Router();
 
 router.get("/:cc/:city", (req, res) => {
   const { cc, city } = req.params;
-
+  const weatherType = req.query.weatherType;
   weather
-    .getDate(city, cc)
+    .getDate(city, cc, weatherType)
     .then(response => {
       res.send(response);
     })
